@@ -1,0 +1,41 @@
+单例模式是设计模式中最简单的形式之一。这一模式的目的是使得类的一个对象成为系统的唯一实例。
+要实现这一点，可以从客户端对其进行实例化开始。因此需要用一种只允许生成对象类的唯一实例的机制，“阻止”所有想要生成对象的访问。
+
+饿汉式：
+public class Singleton{
+       prvate static Singleton uniqueInstance=null;
+       private Singleton(){}
+       public static Singleton instance(){
+              if(uniqueInstance==null)
+                 uniqueInstance=new Singleton();
+              return uniqueInstance;
+       
+       }
+
+}
+
+设计模式教科书上的示例一般与上述代码类似。如果在多线程环境下，instance（）方法可能会出现问题。如何才能做到线程安全呢，可以将代码
+变成：
+public synchronized static Singleton instance(){
+              if(uniqueInstance==null)
+                 uniqueInstance=new Singleton();
+              return uniqueInstance;
+       
+}
+加上synchronized进行限定，确实可以解决线程安全问题，但会造成多线程调用该方法时串行执行，效率低下，如何改进？
+以下代码既可以保证线程安全又可以提高多线程并发的效率。
+public class Singleton{
+       prvate static Singleton uniqueInstance=null;
+       private Singleton(){}
+       public static Singleton instance(){
+              if(uniqueInstance==null){
+                 sychronized(Singleton.class){
+                  if(uniqueInstance==null)
+                     uniqueInstance=new Singleton();
+                }
+              }
+              return uniqueInstance;
+       
+       }
+
+}
