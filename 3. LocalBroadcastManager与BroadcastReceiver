@@ -168,7 +168,9 @@ public boolean sendBroadcast(Intent intent) {
     return false;
 }
 
-先根据Action从mActions中取出ReceiverRecord列表，循环每个ReceiverRecord判断 filter 和 intent 中的 action、type、scheme、data、categoried 是否 match，是的话则保存到receivers列表中，发送 what 为MSG_EXEC_PENDING_BROADCASTS的消息，通过 Handler 去处理。
+先根据Action从mActions中取出ReceiverRecord列表，循环每个ReceiverRecord判断 filter 和 intent 中的
+action、type、scheme、data、categoried 是否 match，是的话则保存到receivers列表中，
+发送 what 为MSG_EXEC_PENDING_BROADCASTS的消息，通过 Handler 去处理。
  
 关于 match 规则可见：Intent Filter介绍。
  
