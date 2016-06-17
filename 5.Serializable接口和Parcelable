@@ -1,1 +1,43 @@
+两种都是用于支持序列化、反序列化话操作，两者最大的区别在于存储媒介的不同，
+Serializable使用IO读写存储在硬盘上，而Parcelable是直接在内存中读写，
+很明显内存的读写速度通常大于IO读写，所以在Android中通常优先选择Parcelable。
 
+Parcelable举例
+
+在Android中实现Parcelable接口的类可以支持序列与反序列化，以下是一个实现的举例：
+1. 实现Parcelable接口
+2. 添加实体属性
+3. 覆写writeToParcel(Parcel dest, int flags)方法，指定写入Parcel类的数据。
+4. 创建Parcelable.Creator静态对象，有两个方法createFromParcel(Parcel in)与newArray(int size)，
+前者指定如何从Parcel中读取出数据对象，后者创建一个数组。
+5. 覆写describeContents方法，默认返回0。
+
+public class Gril implements Parcelable {
+ 
+     private int mAge; // 年龄
+     private boolean mSexy; // 是否性感
+     
+     @Override
+     public void writeToParcel(Parcel dest, int flags) {
+          dest.writeInt(mAge);
+          dest.writeByte((byte) (mSexy ? 1 : 0));
+     }
+     
+     public static final Parcelable.Creator<gril> CREATOR = new Parcelable.Creator<gril>() {
+          public Gril createFromParcel(Parcel in) {
+               Gril gril = new Gril();
+               gril.mAge = in.readInt();
+               gril.mSexy = in.readByte() != 0;
+              return gril;
+          }
+          
+          public Gril[] newArray(int size) {
+              return new Gril[size];
+          }
+     };
+     
+     @Override
+     public int describeContents() {
+          return 0;
+     }
+}
