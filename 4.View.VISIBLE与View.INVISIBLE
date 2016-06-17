@@ -1,1 +1,10 @@
 
+VISIBLE：设置控件可见
+
+INVISIBLE：设置控件不可见
+
+GONE：设置控件隐藏
+
+
+而INVISIBLE和GONE的主要区别是：当控件visibility属性为INVISIBLE时，
+界面保留了view控件所占有的空间；而控件属性为GONE时，界面则不保留view控件所占有的空间。
