@@ -1,0 +1,16 @@
+1 . 下载NDK，地址：http://developer.android.com/tools/sdk/ndk/index.html
+2 . 解压，解压得到的文件夹可以移动到其他文件夹，接下来把它的路径加入到环境变量里就行了
+3 . 在Launchpad中打开terminal（终端）
+4 . 输入 vim ~/.bash_profile，回车
+5 . 按英文键 i 进入编辑模式，在里面添加 export PATH=${PATH}:你的NDK路径
+引用比如我是把NDK放在应用程序的adt-bundle-mac-x86_64文件夹中，所以输入：
+        export PATH=${PATH}:/Applications/adt-bundle-mac-x86_64/android-ndk-r8e
+6 . 按esc键退出编辑模式，输入:wq（冒号键+英文键w+英文键q），回车。
+引用:w   表示 保存
+:q    表示 退出
+:wq 表示 保存并退出
+
+7 . 输入source ~/.bash_profile，回车，以使前面的更改生效。
+
+
+完毕，现在就能直接使用ndk-build命令了。
