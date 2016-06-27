@@ -1,1 +1,57 @@
+1.FragmentPagerAdapter
+0|1|2|3|4|5|6|7|8|9|
+a）第1次启动
+onActivityCreate():0
+onActivityCreate():1
+b)第2次滑动
+onActivityCreated():2
+c)第3次滑动
+onDestroyView:0
+onActivityCreated():3
+d)第4次滑动
+onDestroyView:1
+onActivityCreated():4
+e)此时退出该Activity
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroy:0
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDetach:0
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroy:1
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDetach:1
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroyView:2
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroy:2
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDetach:2
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroyView:3
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroy:3
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDetach:3
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroyView:4
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDestroy:4
+06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDetach:4
+
+
+1.FragmentPagerAdapter
+0|1|2|3|4|5|6|7|8|9|
+a）第1次启动
+onActivityCreate():0
+onActivityCreate():1
+b)第2次滑动
+onActivityCreated():2
+c)第3次滑动
+onDestroyView:0
+onDestroy:0
+onDetach:0
+onActivityCreated():3
+d)第4次滑动
+onDestroyView:1
+onDestroy:1
+onDetach:1
+onActivityCreated():4
+e)此时退出该Activity
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDestroyView:4
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDestroy:4
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDetach:4
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDestroyView:2
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDestroy:2
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDetach:2
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDestroyView:3
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDestroy:3
+06-27 01:02:13.001 2444-2444/com.test.main I/MyFragment: onDetach:3
 
