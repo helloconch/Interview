@@ -1,0 +1,11 @@
+1. settings.setJavaScriptEnabled(true);
+addJavascriptInterface(this, "MyApp");
+
+2. @JavascriptInterface
+    public void resize(final float height) {
+      Log.i("ccccccccccc", "height:" + height);
+
+//setLayoutParams(new LinearLayout.LayoutParams(getResources().getDisplayMetrics().widthPixels, (int) (height * getResources().getDisplayMetrics().density)));
+
+}
+3. 在合适地方loadUrl("javascript:MyApp.resize(document.getElementById('tempdiv').getBoundingClientRect().height)");
