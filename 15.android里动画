@@ -1,1 +1,57 @@
 
+Android 平台提供两种动画系统：Property Animation(Android 3.0引入)和View Animation。
+这两种动画都可供选择，但是Property Animation是首选，因为它更灵活并且提供更强大的功能。
+除此之外，你还可以使用Drawable Animation，它允许你加载一系列图片资源并且按照指定的顺序一帧一帧的播放。
+
+Property Animation
+Introduced in Android 3.0 (API level 11), the property animation system lets you animate properties of any object,
+including ones that are not rendered to the screen.
+The system is extensible and lets you animate properties of custom types as well.
+译文：在Android 3.0( API 11)被引入，Property Animation让你可以让任何对象做动画
+，包括那些没有被渲染到屏幕上的对象。Property Animation 是可扩展的，同时支持对象的自定义属性类型动画。
+
+View Animation
+View Animation is the older system and can only be used for Views. 
+It is relatively easy to setup and offers enough capabilities to meet many application's needs.
+译文：View Animation 是旧的动画系统并且只能使用在View对象上。它使用比较简单，同时提供足够的动画功能来满足许多应用的需要。
+
+Drawable Animation
+Drawable animation involves displaying Drawable resources one after another, 
+like a roll of film. This method of animation is useful if you want to
+animate things that are easier to represent with Drawable resources, such as a progression of bitmaps.
+Drawable animation 一张接一张的去显示一系列图片资源，像一卷电影胶卷。
+
+Android property animation 只有在Android 3.0(API 11)以上版本可用，
+不过好在已经有开源大神帮我们解决这个问题了。这个项目就是NineOldAndroids
+
+NineOldAndroids将Honeycomb animation API 移植到了整个Android Version平台，
+使得ValueAnimator、ObjectAnimator等Honeycomb animation API 能不改一行代码，只修改import的包名就完全兼容到新的api。
+
+
+Usage
+
+如果你熟悉Honeycomb animation API 的话，那么使用就非常简单了，
+只需要将import android.animation.ObjectAnimator替换为 com.nineoldandroids.animation.ObjectAnimator 即可。
+
+    ValueAnimator colorAnim = ObjectAnimator.ofInt(this, "backgroundColor", /*Red*/0xFFFF8080, /*Blue*/0xFF8080FF);  
+    colorAnim.setDuration(3000);  
+    colorAnim.setEvaluator(new ArgbEvaluator());  
+    colorAnim.setRepeatCount(ValueAnimator.INFINITE);  
+    colorAnim.setRepeatMode(ValueAnimator.REVERSE);  
+    colorAnim.start();  
+    
+    NineOldAndroids 库几乎完全兼容最新的Android 3.0 Property Animation API
+
+    AnimatorSet set = new AnimatorSet();  
+    set.playTogether(  
+        ObjectAnimator.ofFloat(myView, "rotationX", 0, 360),  
+        ObjectAnimator.ofFloat(myView, "rotationY", 0, 180),  
+        ObjectAnimator.ofFloat(myView, "rotation", 0, -90),  
+        ObjectAnimator.ofFloat(myView, "translationX", 0, 90),  
+        ObjectAnimator.ofFloat(myView, "translationY", 0, 90),  
+        ObjectAnimator.ofFloat(myView, "scaleX", 1, 1.5f),  
+        ObjectAnimator.ofFloat(myView, "scaleY", 1, 0.5f),  
+        ObjectAnimator.ofFloat(myView, "alpha", 1, 0.25f, 1)  
+    );  
+    set.setDuration(5 * 1000).start(); 
+    
