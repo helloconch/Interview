@@ -1,0 +1,59 @@
+android:clipChildren="false"
+android:clipChildren表示是否限制子View在其范围内，在animations动画以及本文的情况下可以发挥很大的作用。
+
+clipToPadding就是说控件的绘制区域是否在padding里面的，true的情况下如果你设置了padding那么绘制的区域就往里缩
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="#B0C4DE"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="64dip"
+            android:layout_gravity="bottom"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+</LinearLayout>
