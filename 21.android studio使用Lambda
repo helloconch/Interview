@@ -1,0 +1,29 @@
+1.下载Java8 
+2.把以下代码增加到 build.gradle
+
+buildscript {
+  repositories {
+     mavenCentral()
+  }
+
+  dependencies {
+     classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+  }
+}
+
+// Required because retrolambda is on maven central
+repositories {
+  mavenCentral()
+}
+
+apply plugin: 'com.android.application' //or apply plugin: 'java'
+apply plugin: 'me.tatarka.retrolambda'
+
+3.使用Android Studio IDE,请在build.gradle文件上加入
+
+android {
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
