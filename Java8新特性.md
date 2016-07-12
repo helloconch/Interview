@@ -19,6 +19,19 @@
             printLog("In Java8, Lambda expression rocks !!");
         }).start();
 ```
+
+```
+ 2.用lambda表达式进行事件处理
+
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        testButton.setOnClickListener((v) -> {
+
+        });
+```
 #函数式接口
 #流API
 #默认方法
