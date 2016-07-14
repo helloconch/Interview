@@ -1,0 +1,22 @@
+从android4.0起系统设置的”显示“提供设置字体大小的选项。这个设置直接会影响到所有sp为单位的字体适配，
+所以很多app在设置了系统字体后瞬间变得面目全非。下面是解决方案
+在CODE上查看代码片派生到我的代码片
+Resources res = super.getResources();  
+Configuration config=new Configuration();  
+config.setToDefaults();  
+res.updateConfiguration(config,res.getDisplayMetrics() );  
+虽然google推荐使用sp作为字体的单位，但实际的开发过程中通常是根据UIUE的设计稿来换算 sp(px换算sp)。
+而sp即使在同一种密度下其值也不尽相同。比如在240dpi的设备，如果是480x800分辨率这个值通常是1.5倍 (scaledDensity=1.5)
+，如果是480xZ(z>800)那么这个值有可能大于1.5。这无疑给设备的适配带来更多的困难和陷阱。所以个人通常建议使用dpi来作为字体的单位
+
+对于个别app不需要根据系统字体的大小来改变的，可以在activity基类（app中所有的activity都应该有继承于我们自己定义的一个BaseActivity类）
+中加上以下code：
+在CODE上查看代码片派生到我的代码片
+@Override  
+public Resources getResources() {  
+    Resources res = super.getResources();    
+    Configuration config=new Configuration();    
+    config.setToDefaults();    
+    res.updateConfiguration(config,res.getDisplayMetrics() );  
+    return res;  
+}  
