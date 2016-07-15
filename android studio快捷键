@@ -1,0 +1,21 @@
+默认keymap下
+
+打开项目视图   alt+1
+查找所有       双击shift
+查找文件       control+shift+N
+最近文件       control+E
+查找           control+F
+查找和替换      control+R 
+注释           control+/
+注释段落        control+shift+/
+清除无用包      control+alt+o
+上下移动代码     shift+alt+(上下方向键) 
+格式化代码       control+alt+L
+复制            control+D
+删除            control+Y
+生成结构体       control+alt+T
+复写方法         control+O
+查找当前类方法列表 control+shift+O(自定义快捷键)
+大小写转换       control+shift+U
+查找调用的位置    control+alt+H
+导包             alt+enter
