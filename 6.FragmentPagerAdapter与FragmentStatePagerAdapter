@@ -27,7 +27,7 @@ e)此时退出该Activity
 06-27 00:58:22.769 28132-28132/com.test.main I/MyFragment: onDetach:4
 
 
-1.FragmentPagerAdapter
+1.FragmentStatePagerAdapter
 0|1|2|3|4|5|6|7|8|9|
 a）第1次启动
 onActivityCreate():0
