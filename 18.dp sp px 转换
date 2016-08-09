@@ -19,3 +19,20 @@
         float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
+    
+    
+     Android TypedValue.applyDimension()的用法
+     这个方法的作用是 把Android系统中的非标准度量尺寸转变为标准度量尺寸 (Android系统中的标准尺寸是px, 即像素)
+     标准单位: px (px是安卓系统内部使用的单位, dp是与设备无关的尺寸单位 )
+非标准单位: dp, in, mm, pt, sp
+TypedValue.applyDimension()方法的功能就是把非标准尺寸转换成标准尺寸, 如: 
+dp->px:  TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, context.getResources().getDisplayMetrics());
+in->px: TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_IN, 20, context.getResources().getDisplayMetrics());
+mm->px: TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, 20, context.getResources().getDisplayMetrics());
+pt->px: TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, 20, context.getResources().getDisplayMetrics());
+sp->px: TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, context.getResources().getDisplayMetrics());
+
+另:
+默认就是sp
+tab.setTextSize(14);
+等同于tab.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
