@@ -25,7 +25,9 @@ public synchronized static Singleton instance(){
 加上synchronized进行限定，确实可以解决线程安全问题，但会造成多线程调用该方法时串行执行，效率低下，如何改进？
 以下代码既可以保证线程安全又可以提高多线程并发的效率。
 public class Singleton{
-       prvate static Singleton uniqueInstance=null;
+       //双重加锁机制的实现会使用一个关键字volatile，它的意思是：被volatile修饰的变量的值，将不会被本地线程缓存，
+       //所有对该变量的读写都是直接操作共享内存，从而确保多个线程能正确的处理该变量。
+       prvate volatile static Singleton uniqueInstance=null;
        private Singleton(){}
        public static Singleton instance(){
               if(uniqueInstance==null){
