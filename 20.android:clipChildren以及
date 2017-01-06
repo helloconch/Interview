@@ -55,7 +55,7 @@ android:clipChildren表示是否限制子View在其范围内（默认值是true�
 </LinearLayout>
 
 
-* clipToPadding属性定义了是否允许ViewGroup在padding中绘制,该值默认为true,即不允许.
+* clipToPadding属性定义了是否限制ViewGroup在padding中绘制,该值默认为true,即不允许.
  * 所以若我们给ListView设置了android:paddingTop="70dip" android:paddingBottom="70dip"
  * 那么我们可以看到ListView的头部以上和尾部以下都占有70大小的padding,在滑动ListView的过程
  * 中这个padding当然是存在的.在padding部分是看不到ListView的item的,本质上是在这两部分没有绘制
