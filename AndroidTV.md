@@ -54,7 +54,7 @@ adb -s  xxxx shell
 ###
 ```
 ```
-###机顶盒连接调试
+### 机顶盒连接调试
 ```
 删除Android系统下的软件，使用adb shell进入系统，然后使用命令重新挂载“/system”目录为读写权限，具体操作及命令如下
 1.adb shell  
@@ -91,7 +91,7 @@ adb reboot
 
 
 ```
-###更高效的一种卸载内置App方式
+### 更高效的一种卸载内置App方式
 
 ```
 第一步：先把原来已经存在的相同包名的APK删除，如：adb shell rm system/app/OutdoorMeter/OutdoorMeter.apk
@@ -104,7 +104,7 @@ adb reboot
 ```
 
 
-###adb 通过网络连接设备
+### adb 通过网络连接设备
 ```
 1，  确认本机PC 没有任何adb 设备连接，包括模拟器和usb连接， 即 使用
 
@@ -133,7 +133,7 @@ start adbd   //重新启动adbd
 执行这个的前提是你手机可以root权限，如果没有root权限仍然不能执行su
 ```
 
-###更改Hosts配置
+### 更改Hosts配置
 ```
 adb shell
 mount -o remount,rw /system
@@ -141,7 +141,7 @@ vi /system/etc/hosts
 
 按ESC  :wq退出并保存
 ```
-###Monkey
+### Monkey
 ```
 adb shell monkey -p com.voole.epg -vvv --throttle 500 200000
  
