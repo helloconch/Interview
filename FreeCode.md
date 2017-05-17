@@ -102,8 +102,15 @@ Bootstrap 有一个 class 属性叫做 well，它的作用是为设定的列创�
   
 ```
 
-##### 
+#####JS
 ```
+JavaScript提供七种不同的data types(数据类型)，它们是undefined（未定义）, null（空）, boolean（布尔型）, string（字符串）,
+symbol(符号), number（数字）, and object（对象）。
+
+当 JavaScript 中的变量被声明的时候，程序内部会给它一个初始值 undefined。当你对一个值为 undefined 的变量进行运算操作的时候
+，算出来的结果将会是 NaN，NaN 的意思是 "Not a Number"。当你用一个没有 定义 的变量来做字符串连接操作的时候，它会如实的输出"undefined"
+
+
 ```
 
 ##### 
