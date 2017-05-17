@@ -22,7 +22,7 @@ ID选择器 #ID，可覆盖类选择器
 
 HTML内容放在class为container-fluid的div下。
 字体text-primary text-center 
-通过Bootstrap，我们要做的只是给图片添加 img-responsive class属性。这样图片的宽度就能完美地适配你的页面的宽度了。
+通过Bootstrap，我们要做的只是给图片添加 img-responsive /img-thumbnail class属性。这样图片的宽度就能完美地适配你的页面的宽度了。
 
 既然我们在使用Bootstrap，我们可以通过居中头部元素来使它看起来更棒。 我们所要做的只是把text-center class属性添加给 h2 元素。
 
