@@ -111,6 +111,17 @@ symbol(符号), number（数字）, and object（对象）。
 ，算出来的结果将会是 NaN，NaN 的意思是 "Not a Number"。当你用一个没有 定义 的变量来做字符串连接操作的时候，它会如实的输出"undefined"
 
 
+在 JavaScript 中，你可以通过在引号前面使用 反斜杠 (\) 来转义引号。
+var sampleStr = "Alan said, \"Peter is learning JavaScript\".";
+这标志着提醒 JavaScript 单引号或双引号并不是字符串的结尾，而是出现在字符串内的字符.
+
+
+在 JavaScript 中的 字符串 要用单引号或双引号来包裹它，只要你在开始和结束都使用相同类型的引号，单引号和双引号的功能在JavaScript中是相同的。
+"This string has \"double quotes\" in it"
+当我们需要在字符串中使用与开头结尾相同的引号时，我们需要对引号进行 转义 。如果你有很多双引号的字符串，使用转义字符可能导致难以阅读。
+这时候可以使用单引号。
+
+
 ```
 
 ##### 
