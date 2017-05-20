@@ -180,6 +180,32 @@ pop() 函数用来移出数组中最后一个元素。如果想要移出第一�
 
 
 
+有两种方式访问对象属性，一个是点操作符(.)，一个是中括号操作符([])。
+当你知道属性的名称的时候，使用点操作符。
+这是一个使用点操作符读取对象属性的例子：
+var myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+var prop1val = myObj.prop1; // val1
+var prop2val = myObj.prop2; // val2
+
+
+
+第二种访问对象的方式就是中括号操作符([])，如果你想访问的属性的名称有一个空格，这时你只能使用中括号操作符([])。
+这是一个使用中括号操作符([])读取对象属性的例子：
+var myObj = {
+  "Space Name": "Kirk",
+  "More Space": "Spock"
+};
+myObj["Space Name"]; // Kirk
+myObj['More Space']; // Spock
+
+
+
+我们同样可以删除对象的属性，例如：
+delete ourDog.bark;
+
 
 ```
 
