@@ -1,5 +1,7 @@
 [CodePen](https://codepen.io/pen/)
 
+[FreeCodeCamp](http://www.freecodecamp.cn)
+
 ### html
 
 ##### 样式
@@ -205,6 +207,29 @@ myObj['More Space']; // Spock
 
 我们同样可以删除对象的属性，例如：
 delete ourDog.bark;
+
+
+
+有时检查一个对象属性是否存在是非常有用的，我们可以用.hasOwnProperty(propname)方法来检查对象是否有该属性。如果有返回true，反之返回 false。
+
+
+
+
+检索JSON对象 myStorage 中嵌套属性 glove box 的值。因为属性的名字带有空格，请使用中括号操作符来访问属性的值。
+var myStorage = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+
+
 
 
 ```
