@@ -29,6 +29,11 @@ adb logcat -s  tag
 
 adb logcat -v time -s tag标记
 
+将logcat日志进行保存
+adb shell logcat -c 
+adb shell logcat -v time > ../../../../../xx.log
+
+
 12，adb install -r apk位置
 13，启动某一应用
 adb shell am start -n com.example.apptest/com.example.apptest.MainActivity [ package/activity]
