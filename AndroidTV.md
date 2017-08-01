@@ -23,15 +23,13 @@ adb bugreport
 adb get-product
 
 11 查看log
-adb logcat
-
-adb logcat -s  tag
-
-adb logcat -v time -s tag标记
+ logcat -s  tag
+ logcat -v time -s tag标记
 
 将logcat日志进行保存
-adb shell logcat -c 
-adb shell logcat -v time > ../../../../../xx.log
+adb shell
+logcat -c 
+logcat -v time > ../../../../../xx.log
 
 
 12，adb install -r apk位置
