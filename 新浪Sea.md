@@ -6,6 +6,8 @@
 
 [新浪SEA](http://sae.sina.com.cn)
 
+[微信开发](http://wiki.jikexueyuan.com/project/java-wechat/1.html)
+
 ```
 
 
