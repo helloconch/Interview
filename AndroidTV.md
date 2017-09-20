@@ -1,5 +1,11 @@
 ### adb常用命令
 ```
+一、查看task栈情况
+在cmd命令行里或者Android Studio中的Terminal里敲入如下命令：
+adb shell dumpsys activity
+
+
+
 1，  开启adb  服务
 adb start-server
 2，  关闭adb 服务
