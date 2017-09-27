@@ -23,19 +23,23 @@ adb shell  devicename
 adb push  PCfilepath devicepath
 8，  从设备上copy文件到电脑
 adb pull devicepath  PCpath
+adb pull /sdcard/31Error D:/tt
 9，  查看bug报告
 adb bugreport
 10， 获得设备序列ID
 adb get-product
 
 11 查看log
- logcat -s  tag
- logcat -v time -s tag标记
-
 将logcat日志进行保存
-adb shell
-logcat -c 
-logcat -v time > ../../../../../xx.log
+
+开启代理
+盒子IP:5656/logon
+开启代理日志
+盒子IP:5658/logon
+清除日志
+adb shell logcat -c
+保存日志
+adb shell logcat -v time > D:/ttt.log
 
 
 12，adb install -r apk位置
