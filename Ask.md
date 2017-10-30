@@ -40,7 +40,29 @@
 [java排序算法](http://blog.csdn.net/qy1387/article/details/7752973)
 
 
-#### 
+#### 列举java的集合和继承关系
+```
+Collection->List(LinkedList,ArrayList,Vector(->Stack))
+Collection->Set
+Map->Hashtable
+Map->HashMap
+Map->WeakHashMap
+
+```
+
+####
+```
+```
+
+####
+```
+```
+
+####
+```
+```
+
+####
 ```
 ```
 
