@@ -78,8 +78,31 @@ java虚拟机在执行字节码时，把字节码解释成具体平台的机器�
 但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。
 ```
 
-####
+####java中==和equals和hashCode的区别
 ```
+1.java的基本数据类型，也称为原始的数据类型。它们分别是： 
+byte, short, char, int, long, float, double, boolean . 
+基本数据类型进行 “==” 比较时，比较的是 它们的值是否相同，无equals方法。
+
+2.当 两个对象使用 “==” 进行比较时，比较的是它们在 内存中存放的地址。
+也就是说，除非是 同一个new() 出来的两个对象(内存地址相同)， 否则比较的结果都是false。
+
+3.默认情况下，当我们调用equals() 方法时，也仍然是比较两个对象 是否指向同一块内存空间。 
+
+4.诡异的String 
+String c="CCCCCC";
+String c1=c;
+System.out.println(c==c1);
+System.out.println(c.equals(c1));
+		
+String c2="CCCCCC";
+System.out.println(c==c2);
+System.out.println(c.equals(c2));
+true
+true
+true
+true
+
 ```
 
 ####
