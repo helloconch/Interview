@@ -26,11 +26,44 @@
 ```
 #### 内部类的作用
 ```
+为什么要使用内部类？在《Think in java》中有这样一句话：
+使用内部类最吸引人的原因是：
+每个内部类都能独立地继承一个（接口的）实现，
+所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。
+内部类最大的优点就在于它能够非常好的解决多重继承的问题。
+
 1.内部类可以用多个实例，每个实例都有自己的状态信息，并且与其他外围对象的信息相互独立。
 2.在单个外围类中，可以让多个内部类以不同的方式实现同一个接口，或者继承同一个类。
 3.创建内部类对象的时刻并不依赖于外围类对象的创建。
 4.内部类并没有令人迷惑的“is-a”关系，他就是一个独立的实体。
 5.内部类提供了更好的封装，除了该外围类，其他类都不能访问
+
+
+public class OuterClass {
+    private String name ;
+    private int age;
+
+    /**省略getter和setter方法**/
+    
+    public class InnerClass{
+        public InnerClass(){
+            name = "chenssy";
+            age = 23;
+        }
+        
+        public void display(){
+            System.out.println("name：" + getName() +"   ;age：" + getAge());
+        }
+    }
+    
+    public static void main(String[] args) {
+        OuterClass outerClass = new OuterClass();
+        OuterClass.InnerClass innerClass = outerClass.new InnerClass();
+        innerClass.display();
+    }
+}
+ 在Java中内部类主要分为成员内部类、局部内部类、匿名内部类、静态内部类。
+
 ```
 
 #### 父类的静态方法能否被子类重写
