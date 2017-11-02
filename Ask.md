@@ -328,9 +328,13 @@ singleInstance应用场景：
 因此退出之后这个 Task 的栈空了。如果是以 SingleTask 打开 AlarmAlertActivity，
 那么当闹铃响了的时候，按返回键应该进入闹铃设置界面。
 ```
-[Touch事件传递流程](http://hanhailong.com/2015/09/24/Android-%E4%B8%89%E5%BC%A0%E5%9B%BE%E6%90%9E%E5%AE%9ATouch%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6/)
+[Android消息处理机制](http://www.jianshu.com/p/02962454adf7)
+
+[Touch事件传递流程](http://www.jianshu.com/p/e99b5e8bd67b)
 
 [View绘制流程](http://www.codekk.com/blogs/detail/54cfab086c4761e5001b253f)
+
+
 
 ####
 ```
