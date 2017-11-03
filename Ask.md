@@ -468,8 +468,15 @@ RelativeLayout的子View如果高度和RelativeLayout不同，则会引发效率
 在不影响层级深度的情况下,使用LinearLayout和FrameLayout而不是RelativeLayout。
 ```
 [volley解析](http://a.codekk.com/detail/Android/grumoon/Volley%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
+
 [Glide源码](http://www.lightskystreet.com/2015/10/12/glide_source_analysis/)
+
 [Android设计模式](http://blog.csdn.net/bboyfeiyu/article/details/44563871)
+
+
+[Android架构设计](https://github.com/JackyAndroid/AndroidInterview-Q-A/blob/master/picture/architucture.png)
+
+[Android架构设计](https://www.tianmaying.com/tutorial/AndroidMVC)
 
 #### 
 ```
