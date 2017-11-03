@@ -340,22 +340,149 @@ singleInstance应用场景：
 
 
 
-####
+####单例
 ```
+public class Singleton{
+private volatile static Singleton mSingleton;
+private Singleton(){
+}
+public static Singleton getInstance(){
+  if(mSingleton == null){\\A
+    synchronized(Singleton.class){\\C
+     if(mSingleton == null)
+      mSingleton = new Singleton();\\B
+      }
+    }
+    return mSingleton;
+  }
+}
+```
+####什么情况导致内存泄漏
+```
+1.资源对象没关闭造成的内存泄漏
+2.构造Adapter时，没有使用缓存的convertView
+3.Bitmap对象不在使用时调用recycle()释放内存
+4.试着使用关于application的context来替代和activity相关的context
+5.注册没取消造成的内存泄漏
+6.集合中对象没清理造成的内存泄漏
+```
+####ANR定位和修正
+```
+如果开发机器上出现问题，我们可以通过查看/data/anr/traces.txt即可，最新的ANR信息在最开始部分。
+
+主线程被IO操作（从4.0之后网络IO不允许在主线程中）阻塞。
+
+主线程中存在耗时的计算
+
+主线程中错误的操作，比如Thread.wait或者Thread.sleep等 Android系统会监控程序的响应状况，一旦出现下面两种情况，则弹出ANR对话框
+
+1.应用在5秒内未响应用户的输入事件（如按键或者触摸）
+
+2.BroadcastReceiver未在10秒内完成相关的处理
+
+3.Service在特定的时间内无法处理完成 20秒
+
+4.使用AsyncTask处理耗时IO操作。
+
+5.使用Thread或者HandlerThread时，调用Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)设置优先级，
+否则仍然会降低程序响应，因为默认Thread的优先级和主线程相同。
+
+6.使用Handler处理工作线程结果，而不是使用Thread.wait()或者Thread.sleep()来阻塞主线程。
+
+7.Activity的onCreate和onResume回调中尽量避免耗时的代码
+
+8.BroadcastReceiver中onReceive代码也要尽量减少耗时，建议使用IntentService处理。
 
 ```
-####
+####Service与Activity之间通信的几种方式
+```
+1.通过Binder对象
+2.通过broadcast(广播)的形式
+```
+####如何保证service在后台不被Kill
+```
+一、onStartCommand方法，返回START_STICKY
+二、提升service优先级
+在AndroidManifest.xml文件中对于intent-filter可以通过android:priority = "1000"这个属性设置最高优先级，
+1000是最高值，如果数字越小则优先级越低，同时适用于广播。
+三、提升service进程优先级
+Android中的进程是托管的，当系统进程空间紧张的时候，会依照优先级自动进行进程的回收。
+Android将进程分为6个等级,它们按优先级顺序由高到低依次是:
+前台进程( FOREGROUND_APP)
+可视进程(VISIBLE_APP )
+次要服务进程(SECONDARY_SERVER )
+后台进程 (HIDDEN_APP)
+内容供应节点(CONTENT_PROVIDER)
+空进程(EMPTY_APP)
+当service运行在低内存的环境时，将会kill掉一些存在的进程。因此进程的优先级将会很重要，可以使用startForeground 将service放到前台状态。
+这样在低内存时被kill的几率会低一些。
+四、onDestroy方法里重启service
+service +broadcast  方式，就是当service走ondestory的时候，发送一个自定义的广播，当收到广播的时候，重新启动service；
+五、Application加上Persistent属性
+六、监听系统广播判断Service状态
+通过系统的一些广播，比如：手机重启、界面唤醒、应用状态改变等等监听并捕获到，然后判断我们的Service是否还存活，别忘记加权限啊。
+```
+####Requestlayout,onlayout,onDraw,DrawChild区别与联系
+```
+requestLayout()方法 ：会导致调用measure()过程 和 layout()过程, 将会根据标志位判断是否需要ondraw
+
+onLayout()方法(如果该View是ViewGroup对象，需要实现该方法，对每个子视图进行布局)
+
+调用onDraw()方法绘制视图本身   (每个View都需要重载该方法，ViewGroup不需要实现该方法)
+
+drawChild()去重新回调每个子视图的draw()方法
+```
+
+#### invalidate()和postInvalidate()的区别及使用
+```
+invalidate()是用来刷新View的，必须是在UI线程中进行工作。比如在修改某个view的显示时，
+调用invalidate()才能看到重新绘制的界面。invalidate()的调用是把之前的旧的view从主UI线程队列中pop掉。 
+一个Android 程序默认情况下也只有一个进程，但一个进程下却可以有许多个线程。
+在这么多线程当中，把主要是负责控制UI界面的显示、更新和控件交互的线程称为UI线程，
+由于onCreate()方法是由UI线程执行的，所以也可以把UI线程理解为主线程。其余的线程可以理解为工作者线程。
+invalidate()得在UI线程中被调动，在工作者线程中可以通过Handler来通知UI线程进行界面更新。
+而postInvalidate()在工作者线程中被调用
+```
+#### Android动画框架实现原理
+```
+Animation框架定义了透明度，旋转，缩放和位移几种常见的动画，而且控制的是整个View，
+实现原理是每次绘制视图时View所在的ViewGroup中的drawChild函数获取该View的Animation的Transformation值，然后调用canvas.concat(transformToApply.getMatrix())，通过矩阵运算完成动画帧，如果动画没有完成，
+继续调用invalidate()函数，启动下次绘制来驱动动画，动画过程中的帧之间间隙时间是绘制函数所消耗的时间，
+可能会导致动画消耗比较多的CPU资源，最重要的是，动画改变的只是显示，并不能相应事件。
+```
+#### Android为每个应用程序分配的内存大小是多少
+```
+android程序内存一般限制在16M，也有的是24M
+```
+#### View刷新机制
+```
+由ViewRoot对象的performTraversals()方法调用draw()方法发起绘制该View树，值得注意的是每次发起绘图时，
+并不会重新绘制每个View树的视图，而只会重新绘制那些“需要重绘”的视图，View类内部变量包含了一个标志位DRAWN，
+当该视图需要重绘时，就会为该View添加该标志位。
+```
+#### LinearLayout和RelativeLayout性能对比
+```
+RelativeLayout会让子View调用2次onMeasure，LinearLayout 在有weight时，也会调用子View2次onMeasure
+RelativeLayout的子View如果高度和RelativeLayout不同，则会引发效率问题，
+当子View很复杂时，这个问题会更加严重。如果可以，尽量使用padding代替margin。
+在不影响层级深度的情况下,使用LinearLayout和FrameLayout而不是RelativeLayout。
+```
+[volley解析](http://a.codekk.com/detail/Android/grumoon/Volley%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
+[Glide源码](http://www.lightskystreet.com/2015/10/12/glide_source_analysis/)
+[Android设计模式](http://blog.csdn.net/bboyfeiyu/article/details/44563871)
+
+#### 
 ```
 ```
-####
+#### 
 ```
 ```
-####
+#### 
 ```
 ```
-####
+#### 
 ```
 ```
-####
+#### 
 ```
 ```
