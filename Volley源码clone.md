@@ -1,12 +1,13 @@
-#环境
+# 环境
 Mac+ShadowSocks  
-###步骤
+### 步骤
 1.设置git代理  
 git config --global http.proxy socks5://localhost:1080  
 2.进行clone   
 ```
 Cloning into 'volley'...
-fatal: unable to access 'https://android.googlesource.com/platform/frameworks/volley/': Could not resolve host: android.googlesource.com
+fatal: unable to access 'https://android.googlesource.com/platform/frameworks/volley/': 
+Could not resolve host: android.googlesource.com
 
 ```
 3.通过nslookup android.googlesource.com查找对应IP地址  
