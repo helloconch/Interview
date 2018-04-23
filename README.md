@@ -10,3 +10,5 @@ https://pan.baidu.com/s/1geJvigj  密码:byf2
 
 [反射相关](http://www.cnblogs.com/zhaoyanjun/p/6074887.html)
 
+[透彻理解 Java synchronized 对象锁和类锁的区别](https://blog.csdn.net/zhujiangtaotaise/article/details/55509939)
+
