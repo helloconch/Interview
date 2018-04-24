@@ -12,3 +12,6 @@ https://pan.baidu.com/s/1geJvigj  密码:byf2
 
 [透彻理解 Java synchronized 对象锁和类锁的区别](https://blog.csdn.net/zhujiangtaotaise/article/details/55509939)
 
+[ThreadLocal](https://blog.csdn.net/lhc1105/article/details/51356312)
+
+
