@@ -1,18 +1,15 @@
 package com.conch.tiku;
 
-import android.view.ViewGroup;
+import com.conch.tiku.arithmetic.LinkData;
+import com.conch.tiku.node.Node;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -104,5 +101,40 @@ public class ExampleUnitTest {
             e.printStackTrace();
         }
 
+
+        Node.LinkedLoop n1 = new Node.LinkedLoop(1);
+        Node.LinkedLoop n2 = new Node.LinkedLoop(3);
+        Node.LinkedLoop n3 = new Node.LinkedLoop(6);
+        Node.LinkedLoop n4 = new Node.LinkedLoop(4);
+        Node.LinkedLoop n5 = new Node.LinkedLoop(5);
+        Node.LinkedLoop n6 = new Node.LinkedLoop(10);
+
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+        n5.next = n6;
+        n6.next = n4;
+
+        System.out.println("单链表是否有环:" + Node.hasLoop(n1));
+
+        int[] array = {5, 4, 8, 87, 34, 65, 13, 54, 35, 12};
+
+//        System.out.println("&按位与::" + (array[0] & array[1]));
+//        System.out.println("|按位或::" + (array[0] | array[1]));
+//        System.out.println("^异或::" + (array[0] ^ array[1]));
+
+
+        LinkData linkData = new LinkData();
+
+        for (int i = 0; i < 7; i++) {
+            linkData.insert(i, "name" + i);
+        }
+        //linkData.print();
+        linkData.revert();
+
+
     }
+
+
 }
