@@ -1796,7 +1796,35 @@ public static synchronized void test() {
 <merge>使用<merge>来解决include或自定义组合ViewGroup导致的冗余层级问题
 <ViewStub>
 ```
+### 线程的关闭方式
+[详解](https://blog.csdn.net/u010429311/article/details/53333262)
+```
+1.使用中间变量去控制。
+ private static volatile boolean isDestroy=false;
+ 修改isDestroy的值，根据JVM内存模型可知，每个线程都有自己的工作内存，
+ 工作内存存储主内存的变量副本，volatile可当主线程改变刷新主内存后，其它线程
+ 去主内存中读取该变量。
+ 
+ 2.interrupt打断
+ 判断线程是否中止采用isInterrupted，
+ 如果线程中有Thread.sleep方法，当设置中断后，执行这个方法会抛出异常，
+ 就务必在异常中继续关闭线程Thread.currentThread().interrupt();
+ while (true&&(!Thread.currentThread().isInterrupted())) {
+            try {
+                // 每执行一次暂停40毫秒
+                //当sleep方法抛出InterruptedException  中断状态也会被清掉
+                Thread.sleep(40);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                //如果抛出异常则再次设置中断请求
+                Thread.currentThread().interrupt();
+            }
+        }
 
+
+为何不用stop??
+不安全，暴力，也是遗弃的方法，导致资源无法释放。
+```
 
 
 
