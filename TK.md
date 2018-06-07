@@ -1580,8 +1580,16 @@ onCreate->onStart->onResume->onPause->onStop->onDestroy
 
 onSaveInstanceState并不是百分百调用的（比如点击了back键），显然一些永久性的数据，
 我们并不能在此中保存。
+onSaveInstance方法一定是在onStop()方法之前调用。
 
 临时数据使用onSaveInstanceState保存恢复，永久性数据使用onPause方法保存。
+
+onSaveInstanceState()方法什么时候执行?
+1.当用户按下Home键
+2.长按Home键，选择允许其他程序。
+3.按下电源键时
+3.屏幕切换时。
+
 
 ```
 
