@@ -1263,6 +1263,7 @@ String类内部value是一个final类型的char数组。
 
 ### 常用的图片加载库
 [详解](https://www.jianshu.com/p/97994c9693f9)
+[fresco使用详解](https://blog.csdn.net/rongbinjava/article/details/51836835)
 ```
 ImageLoader:已停止维护
 Picasso：同样Square的，Square公司其他开源库和Retrofit或者OkHttp
@@ -1585,10 +1586,13 @@ onSaveInstance方法一定是在onStop()方法之前调用。
 临时数据使用onSaveInstanceState保存恢复，永久性数据使用onPause方法保存。
 
 onSaveInstanceState()方法什么时候执行?
+调用时机：Activity容易被销毁的时候调用，注意是容易被销毁，
+也可能没有销毁就调用。
 1.当用户按下Home键
 2.长按Home键，选择允许其他程序。
-3.按下电源键时
-3.屏幕切换时。
+3.按下电源键时,屏幕关闭,Activity进入后台。
+3.横竖屏切换时
+4.启动其它Activity，Activity被压入任务栈的栈底。
 
 
 ```
