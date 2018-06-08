@@ -1285,6 +1285,10 @@ Android 5.1	22	Lollipop            7
 Android 5.0	21	Lollipop            7
 Android 4.4	19	KITKAT              6
 ```
+### 常见的数据格式
+```
+xml/json/protocol buffer
+```
 ### json
 ```
 fastJson/GSON/Jackson
