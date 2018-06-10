@@ -1845,8 +1845,15 @@ public static synchronized void test() {
 ### app优化怎么做
 [详解](https://www.jianshu.com/p/6d855e984b99)
 
-###
+### List
 ```
+List<String> datas=new ArrayList<>();
+datas.add("a");
+datas.add("b");
+从datas中获取0到1，不包括1的数据集合
+List aa=datas.subList(0,1)
+//对aa添加移除数据，datas也发生变化
+aa.add("c")
 ```
 
 ###
