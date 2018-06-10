@@ -274,6 +274,15 @@ Bundle实现Parcelable接口，支持进程间通讯，保存特定数据。
 2.Looper通过loop()不断提取触发条件message,并将message交给对应的target handler处理
 3.target handler调用自身handleMessage()方法来处理Message
 
+Message Queue（消息队列)
+定义：采用单链表的数据结构来存储消息列表
+作用：用来存放通过Handler发过来的Message，按照先进先出执行
+
+Looper（循环器）
+static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+作用： 
+消息循环：循环取出Message Queue的Message 
+消息派发：将取出的Message交付给相应的Handler
 ```
 
 
