@@ -1854,6 +1854,14 @@ datas.add("b");
 List aa=datas.subList(0,1)
 //对aa添加移除数据，datas也发生变化
 aa.add("c")
+
+
+工具类Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，它的add/remove/clear方法会抛出异常。
+asList的返回对象是一个Arrays内部类,并没有实现集合的修改方法。
+Arrays.asList体现的是适配器模式，只是转换接口，后台的数据仍是数组。
+String[] str = new String[]{"1","2"};
+List list = Arrays.asList(str);
+
 ```
 
 ###
