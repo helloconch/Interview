@@ -1883,8 +1883,62 @@ List list = Arrays.asList(str);
 
 ```
 
-###
+### 用设计模式来代替臃肿的ifelse层层判断
 ```
+策略模式
+public class NoIfElse {
+      public static void main(String args[]){
+         MyPaper myPaper = new MyPaper(new White());
+         myPaper.choicePen();
+          }
+       }
+interface PaperColor{
+     public void getPenColor();
+}
+class White implements PaperColor{
+      public void getPenColor(){
+         System.out.println("You need a white pen!");
+      }
+}
+class Red implements PaperColor{
+       public void getPenColor(){
+          system.out.println("You need a red pen!");
+       }
+}
+
+泛化查表法
+
+public class IfElseHandler {
+
+    static HashMap<String,Flatten> workers=new HashMap<>();
+
+    static void init(){
+        workers.put("AAA",new TextMsgHandler());
+        workers.put("BBB",new ImageMsgHandler());
+    }
+
+    static Object handle(String key){
+        return workers.get(key).work(key);
+    }
+
+}
+
+public interface Flatten {
+
+    <T, F> T work(F f);
+}
+public class ImageMsgHandler implements Flatten{
+    @Override
+    public <T, F> T work(F f) {
+        return (T)"Image processed";
+    }
+}
+public class TextMsgHandler implements Flatten {
+    @Override
+    public <T, F> T work(F f) {
+        return (T) "Text processed";
+    }
+}
 ```
 
 ###
