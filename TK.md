@@ -1941,8 +1941,15 @@ public class TextMsgHandler implements Flatten {
 }
 ```
 
-###
+### 简单工厂、工厂、抽象工厂
+[详解](https://blog.csdn.net/lqw05/article/details/51909449)
+[详解](https://www.jianshu.com/p/5d1a3f0ec226)
 ```
+简单工厂：（一个工厂对多个产品）工厂根据不同的参数创建对应的产品。
+
+工厂:(一个工厂对一个产品)是简单工厂的升级，不同的工厂实现同一个工厂方法生产不同的产品。
+
+抽象工厂：简单工厂+工厂方法
 ```
 
 ###
