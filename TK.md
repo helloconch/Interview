@@ -1981,6 +1981,11 @@ String类内部value是一个final类型的char数组。
 
 ### Activity上有Dialog时候按home键的生命周期
 ```
+有/无Dialog-按home键：
+onPause->onStop->onRestart->onStart->onResume
+无Dialog-按Back键：
+onPause->onStop->onDestroy->onCreate->onStart->onResume
+
 ```
 ### Application和Activity的context对象的区别
 ```
