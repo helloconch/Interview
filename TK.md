@@ -1965,8 +1965,13 @@ public class TextMsgHandler implements Flatten {
 
 ```
 
-###
+### android播放视频
+[详解](https://blog.csdn.net/wufeiqing/article/details/74139767)
 ```
+android播放视频api有surface/videoview/textureview
+
+textureview必须在Anroid4.0以上，比surfaceview方便一些。
+
 ```
 
 ###
