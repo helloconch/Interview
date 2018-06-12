@@ -1263,12 +1263,6 @@ int c=1 int为值类型，引用类型Integer与值类型int比较显然比较�
 1.handler在子线程创建，但需要建立消息循环的步骤Looper.prepare()/Looper.loop()
 ```
 
-### String类为何为不可变
-```
-String类是用final关键字修饰，说明String不可被继承。
-String类内部value是一个final类型的char数组。
-
-```
 
 ### 常用的图片加载库
 [详解](https://www.jianshu.com/p/97994c9693f9)
@@ -1974,13 +1968,55 @@ textureview必须在Anroid4.0以上，比surfaceview方便一些。
 
 ```
 
-###
+### String类为何为不可变
+```
+String类是用final关键字修饰，说明String不可被继承。
+String类内部value是一个final类型的char数组。
+
+```
+
+### fragment各种情况下的生命周期
 ```
 ```
 
-###
+### Activity上有Dialog时候按home键的生命周期
 ```
 ```
+### Application和Activity的context对象的区别
+```
+```
+
+### List和Map的实现方式以及存储方式
+```
+```
+### 静态内部类的设计意图
+```
+```
+### 
+```
+```
+### 
+```
+```
+### 
+```
+```
+### 
+```
+```
+### 
+```
+```
+### 
+```
+```
+### 
+```
+```
+### 
+```
+```
+
 
 
 
