@@ -2017,13 +2017,29 @@ onPause->onStop->onDestroy->onCreate->onStart->onResume
 ```
 ### Application和Activity的context对象的区别
 ```
+这是两种不同的context，也是最常见的两种.第一种中context的生命周期与Application的生命周期相关的，
+context随着Application的销毁而销毁，伴随application的一生，与activity的生命周期无关.
+第二种中的context跟Activity的生命周期是相关的，但是对一个Application来说，Activity可以销毁几次，
+那么属于Activity的context就会销毁多次.
+在使用context的时候，小心内存泄露，防止内存泄露，注意一下几个方面：
+1. 不要让生命周期长的对象引用activity context，即保证引用activity的对象要与activity本身生命周期是一样的
+2. 对于生命周期长的对象，可以使用application context
+3. 避免非静态的内部类，尽量使用静态类，避免生命周期问题，注意内部类对外部对象引用导致的生命周期变化
 ```
 
-### List和Map的实现方式以及存储方式
-```
-```
+### List和Map使用场景筛选
+[详解](https://www.cnblogs.com/nucdy/p/5867210.html)
 ### 静态内部类的设计意图
 ```
+内部类，即定义在一个类的内部的类。
+使用内部类的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。
+
+静态内部类：
+非静态内部类在编译完成之后会隐含地保存着一个引用，该引用是指向创建它的外围内，但是静态内部类却没有。
+没有这个引用就意味着：
+它的创建是不需要依赖于外围类的。
+它不能使用任何外围类的非static成员变量和方法。
+
 ```
 ### 
 ```
