@@ -1971,12 +1971,40 @@ textureview必须在Anroid4.0以上，比surfaceview方便一些。
 ### String类为何为不可变
 ```
 String类是用final关键字修饰，说明String不可被继承。
-String类内部value是一个final类型的char数组。
-
+String类内部value是一个final类型的char数组，且被private修饰，外界无法改变。
+不可变有何好处？
+安全、不可变对象不能被写，所以线程安全。在大量使用字符串的情况下，可以节省内存空间，提高效率。
 ```
 
 ### fragment各种情况下的生命周期
 ```
+1.Fragment在Activity中replace
+新替换的fragment:onAttach-oncreate-oncreateview-onviewcreated-onactivitycreated-onstart-onresume
+被替换的fragment:onpause-onstop-onDestroyview-onDestroy-onDetach
+
+2.Fragment在Activity中replace，并addToBackStack
+新替换的fragment（没有在BackStack）:
+onAttach-oncreate-oncreateview-onviewcreated-onactivitycreated-onstart-onresume
+新替换的fragment（在BackStack）:
+oncreateview-onviewcreated-onactivitycreated-onstart-onresume
+被替换的fragment:
+onPause-onstop-onDestroyView
+
+3.fragment在ViewPage中切换（前面fragment-PF/后面fragment-NF/其它fragment-OF）
+在viewpager中setUserVisibleHint反映出fragment是切换到后台或前台。通过setUserVisibleHint、getUserVisibleHint（）实现
+懒加载，且setUserVisibleHint在onCreate前执行
+a:如果重写了FragmentPagerAdapter的destroyItem方法，并且相关Fragment已经加载过
+则相互切换只会调用setUserVisibleHint
+
+4.如果fragment进入运行状态
+fragmnet在上述各种情况进入onResume后，进入运行状态，以下4个生命周期跟随所属Activity一起被调用
+onPause-onstop-onStart-onResume
+
+5.关于Fragment的onActivityResult方法
+使用Fragment的startActivity方法时，FragmentActivity的onActivityResult方法
+会回调相应的Fragment的onActivityResult方法，所以在重写FragmentActivity的onActivityResult方法时，
+注意调super.onActivityResult。
+
 ```
 
 ### Activity上有Dialog时候按home键的生命周期
