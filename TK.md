@@ -2041,8 +2041,15 @@ context随着Application的销毁而销毁，伴随application的一生，与act
 它不能使用任何外围类的非static成员变量和方法。
 
 ```
-### 
+### 双向链表
+[详解](https://blog.csdn.net/qq_30507287/article/details/51793285)
 ```
+ A  -->  B 
+    <--
+ 向B节点添加一个节点C【B.pre=C/A.next=C/C.pre=A/C.next=B】
+ 
+ 将B节点移除[A.next=B.next / B.next.pre=A]
+ 
 ```
 ### 
 ```
