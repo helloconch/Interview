@@ -171,10 +171,17 @@ TreeMap:间接implements SortMap接口，能够把它保存的记录根据键排
 [ConcurrentHashMap详解](https://blog.csdn.net/dingji_ping/article/details/51005799)
 
 ```
-HashMap底层是一个数组结构，数组中的每一项是一个链表。
-简单的说，HashMap在底层将key-value当成一个整体处理，这个整体就是一个Entry对象。
-HashMap底层采用一个Entry[]数组来保存所有key-value对.
-当需要存储一个对象时，会根据键对象的hashCode来找到哈希桶位置存储对象。
+HashMap底层是一个Entry[]数组结构，数组中的每一项是一个链表。
+Entry是由key-value组成。
+
+当需要存储一个对象时，会计算key键的hash值，若不存在相同的hash值，则
+存到链表中。若存在相同的hash值，且equals()相等，则将旧值进行覆盖。
+若equals不相等，则存储在该链表的下一个节点中。
+
+当获取对象时，会根据计算key键的hash值找到对应链表,然后查找链表中上的对应元素。
+ if (e.hash == hash && ((k = e.key) == key || key.equals(k)))  
+                return e.value;  
+
 
 ConcurrentHashMap类创建16个并发的segment,每个segment里面包含多个Hash表，每个
 Hash链都是有HashEntry节点组成。
@@ -184,7 +191,23 @@ HashTable是线程安全的，是因为将整张表加锁实现同步，一个�
 ```
 
 ### HashMap如何避免碰撞以及如何扩容
+[详解](https://blog.csdn.net/caisini_vc/article/details/52452498)
 ```
+HashMap使用链表来解决碰撞问题，当碰撞发生，对象将会存储在链表的下一个节点中，
+HashMap在每一个链表节点存储键值对象。当两个不同的键有相同的hashcode，将被存储
+在同一个bucket位置的链表中。
+
+put操作如何覆盖相同的key,进行值替换
+当有相同的hashcode值&&(key&&key||key.equals(key))则进行替换
+
+
+HashMap扩容问题，初始容量的大小为2的4次方（1<<4），最大容量为2的30次方。
+当我们自定义容量大小时，构造函数并非直接把我们定义的数值当做HashMap容量大小，
+而是将该参数的2的倍数当做数组的容量。
+HashMap使用懒加载，构造完Hashmap对象后，只要不进行put方法插入元素之前，hashmap
+并不会去初始化或者扩容table.
+当添加元素后，发现size大于threshold(阈值)则调用resize方法进行扩容
+
 ```
 
 ### 性能优化，怎么保证应用启动不卡顿
