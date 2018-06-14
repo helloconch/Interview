@@ -2078,8 +2078,16 @@ context随着Application的销毁而销毁，伴随application的一生，与act
  将B节点移除[A.next=B.next / B.next.pre=A]
  
 ```
-### 
+### LinearLayout 和RelativeLayout 性能比较
+[详解](https://www.jianshu.com/p/8a7d059da746)
 ```
+1.从源码中看出，Relativeout不如LinearyLaout快的根本原因是Relativelayout需要对
+子view进行两次measure过程，而LinearLayout则只需要一次measure过程。
+而如果LinearLayout中有weight属性，也需要进行两次measure。
+2.RelativeLayout的子view如果高度和RelativeLaout不同，则会引发效率问题。子view很复杂，
+问题更严重，如果可以，进行使用padding
+3.不影响层级深度情况下，使用LinearLayout和FragmentLaout而不是RelativeLayout.
+
 ```
 ### 
 ```
