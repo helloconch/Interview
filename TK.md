@@ -1,3 +1,20 @@
+### MVC MVP MVVM
+[详解](http://www.iteye.com/news/32931)
+```
+MVC[1.View被点击->2.将请求转发给Controller->3.controller操作Model->4.Model通知View更新]
+M:表示model，专门用来处理业务逻辑
+V:表示View,专注页面布局和数据显示。
+C:表示Controller，处理View的请求，操作Model
+
+
+MVP
+View只知道Presenter,不知道Model。Model与View进行了分离。
+View层提取出接口，Presenter只依赖这个接口。
+
+MVVM
+ViewModel，可以与View层绑定，当ViewModel的变化，View立刻就会变化。
+
+```
 
 [oauth认证协议原理](https://blog.csdn.net/mwq384807683/article/details/70313871)
 
