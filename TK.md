@@ -1,3 +1,6 @@
+
+[启动模式](https://blog.csdn.net/yeyuxp/article/details/21952323)
+
 ### MVC MVP MVVM
 [详解](http://www.iteye.com/news/32931)
 ```
@@ -363,6 +366,15 @@ public boolean dispatchTouchEvent(MotionEvent ev){
 synchronized加到static方法前面是给class加锁，即类锁。
 1.对象锁和类锁是不同的锁，所以多个线程执行2个不同的锁的方法是，是异步操作。
 2.类锁对该类的所有对象都能起作用，而对象锁不能。
+
+1.普通同步方法，锁是当前实例对象
+2.静态同步方法，锁是当前类的class对象
+3.同步方法块，锁是括号里面的对象
+
+当一个线程访问object的一个synchronized(this)同步代码块时，另一个线程仍然可以访问该object中的非synchronized(this)同步代码块。
+当一个线程访问object的一个synchronized(this)同步代码块时，其他线程对object中所有其它synchronized(this)同步代码块的访问将被阻塞。
+
+
 ```
 
 
@@ -886,7 +898,7 @@ public static String reverse3(String s)
 
 
 ```
-### 输出该链表中倒数第个结点
+### 输出该链表中倒数第几个结点
 [详解](https://www.cnblogs.com/mthoutai/p/6872784.html)
 ```
 public ListNode FindKthToTail(ListNode head,int k){
@@ -1228,11 +1240,14 @@ http响应头是服务端根据客户端的请求发出的一串信息，可能�
 
 
 ### 单例 枚举
+[详解](https://jingyan.baidu.com/article/f79b7cb309c11c9145023e7a.html)
 ```
+懒汉模式
 public class Singleton{
 private static volatile Singleton instanc=null;
 private Singleton(){}
 public static Singleton getInstance(){
+//双重锁
 if(instance==null){
 synchronzied(Singleton.class){
 if(instance==null){
@@ -1243,6 +1258,16 @@ instance=new Singleton();
 return instance;
 }
 }
+
+饿汉模式:
+
+public class Singleton{
+private static Singleton s1=new Singleton();
+public static Singleton getInstance(){
+  return s1;
+}
+}
+
 枚举确实使得代码更加易读，但在编写高效Android代码时避免使用枚举，它
 会减缓执行速度并增加文件体积，这要是减少OOM的一方面。
 ```
@@ -2109,8 +2134,18 @@ context随着Application的销毁而销毁，伴随application的一生，与act
 3.不影响层级深度情况下，使用LinearLayout和FragmentLaout而不是RelativeLayout.
 
 ```
-### 
+### 类型转化
 ```
+数字型字符('0'-'9')，转化为数字 如'7'转化为7
+int value='7'-'0';
+
+数字(0-9)转化为字符'0'-'9'
+char c=(char)(7+48);
+
+字符型转化为数字 'a'....'z'..'?'
+直接通过int获取
+
+
 ```
 ### 
 ```
