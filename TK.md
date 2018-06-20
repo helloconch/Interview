@@ -2145,10 +2145,22 @@ char c=(char)(7+48);
 字符型转化为数字 'a'....'z'..'?'
 直接通过int获取
 
+```
+### JNI与NDK
+[详解](https://www.jianshu.com/p/38859f881888)
+```
+AS2.2以下
+1.在项目中声明需要调用的Native方法
+2.用C++实现java的Native方法
+3.添加Android.mk/Application.mk文件
+4.ndk-build生成对应.so文件
+5.编译项目，实现Android调用本地代码
 
-```
-### 
-```
+AS2.2以上
+1.创建工程时直接勾选include C++ Support
+2.同时添加CMake的支持
+3.修改native-lib.cpp
+4.调用本地native方法
 ```
 ### 
 ```
