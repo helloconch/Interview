@@ -2162,8 +2162,23 @@ AS2.2以上
 3.修改native-lib.cpp
 4.调用本地native方法
 ```
-### 
+### AIDL
+[详解](https://www.jianshu.com/p/29999c1a93cd)
 ```
+service 指定android:exported = true
+是否支持其它应用调用当前组件
+
+activity和service，如果service没有设定属性android:process=":remote"，
+service会和activity跑在同一个进程中，由于一个进程只有一个UI线程，
+所以，service和acitivity就是在同一个线程里面的。
+
+如果Activity想访问service中的对象或方法，如果service设定属性android:process=":remote"，
+那么就是跨进程访问。
+
+Service 的两大功能是什么？怎样实现？
+情况1：当Acitivity和Service处于同一个Application和进程时，通过继承Binder类来实现。
+情况2：跨进程通讯，使用AIDL;
+
 ```
 ### 
 ```
