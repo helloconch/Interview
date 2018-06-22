@@ -333,6 +333,12 @@ static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
 作用： 
 消息循环：循环取出Message Queue的Message 
 消息派发：将取出的Message交付给相应的Handler
+
+1.在子线程中通过Looper.prepare()生成一个Looper存放在对应的sThreadLocal中，并且生成了mQueue
+2..构建Handler时通过构造函数调用Looper.myLooper()找到mLooper
+2.通过mLooper找到对应的mQueue
+3.Lopper.loop()进行消息处理
+
 ```
 
 
