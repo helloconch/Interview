@@ -3,8 +3,7 @@
 
 [添加ssh解决权限问题](https://www.cnblogs.com/blogzhangwei/p/5944975.html)
 
-Android
-https://pan.baidu.com/s/1geJvigj  密码:byf2
+[Android 密码:byf2 ](https://pan.baidu.com/s/1geJvigj)
 
 [swing打包](http://www.cnblogs.com/luhan/)
 
