@@ -12,3 +12,47 @@
 如遥控类的，如鼠标，键盘，遥控鼠标(Air Mouse)，传感设备的数据发送，如心跳带，血压计，温度传感器等。
 
 ```
+### 权限
+```
+声明权限
+<uses-permission android:name="android.permission.BLUETOOTH"/>
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+如果想让你的app仅仅对BLE可用，则需要配置下manifest.
+<uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+检测设备是否支持BLE
+if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
+    Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
+    finish();
+}
+```
+
+### 说明
+```
+如果设备不支持BLE，则所有BLE特性需要被禁用。
+如果支持BLE，但不可用，可用引导用户启动蓝牙，设置过程中通过BluetoothAdapter.
+1)
+private BluetoothAdapter mBluetoothAdapter;
+...
+// Initializes Bluetooth adapter.
+final BluetoothManager bluetoothManager =
+        (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+mBluetoothAdapter = bluetoothManager.getAdapter();
+
+2)判断Bluetooth是否激活，未激活则跳转到打开界面
+if (mBluetoothAdapter == null || !mBluetoothAdapter.isEnabled()) {
+    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+}
+
+```
+
+### 查找BLE设备
+```
+通过 startLeScan() 查找BLE devices.
+有两条注意事项
+1)一旦找到想要的设备，停止扫描。
+2)设置扫描时间，避免循环一直扫描。
+
+````
