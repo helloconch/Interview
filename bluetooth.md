@@ -1,4 +1,4 @@
-### 蓝牙
+### 蓝牙BLE(Bluetooth low energy)
 [Android官方文档](https://developer.android.com/guide/topics/connectivity/bluetooth-le)
 ```
 蓝牙4.0标准包含两个蓝牙标准（双模的标准），包含传统蓝牙部分（也有称之为经典蓝牙Classic Bluetooth）
@@ -10,6 +10,8 @@
 
 低功耗蓝牙这样应用于实时性要求比较高，但是数据速率比较低的产品，
 如遥控类的，如鼠标，键盘，遥控鼠标(Air Mouse)，传感设备的数据发送，如心跳带，血压计，温度传感器等。
+
+Android 4.3 (API level 18) introduces built-in platform support for Bluetooth Low Energy (BLE) 
 
 ```
 ### 权限
