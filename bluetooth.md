@@ -18,6 +18,7 @@ Android 4.3 (API level 18) introduces built-in platform support for Bluetooth Lo
 
 ```
 ### 权限
+[6.0设备着重注意地方](https://www.cnblogs.com/Free-Thinker/p/6566713.html)
 ```
 声明权限
 <uses-permission android:name="android.permission.BLUETOOTH"/>
@@ -31,6 +32,8 @@ if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) 
     Toast.makeText(this, R.string.ble_not_supported, Toast.LENGTH_SHORT).show();
     finish();
 }
+
+设备6.0增加   <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
 ```
 
 ### 说明
