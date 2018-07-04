@@ -3,6 +3,8 @@
 
 [BlueTooth BLE 之 Central 与 Peripheral 理解](http://www.knowsky.com/982766.html)
 
+[深入蓝牙基础、深入、总结](https://blog.csdn.net/androidstarjack/article/details/60595241)
+
 ```
 蓝牙4.0标准包含两个蓝牙标准（双模的标准），包含传统蓝牙部分（也有称之为经典蓝牙Classic Bluetooth）
 和低功耗蓝牙部分（Bluetooth Low Energy）。该技术拥有极低的运行和待机功耗，使用一粒纽扣电池甚至可连续工作数年之久。
