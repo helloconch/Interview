@@ -12,7 +12,8 @@
 传统蓝牙可以用与数据量比较大的传输，如语音，音乐，较高数据量传输等。
 
 低功耗蓝牙这样应用于实时性要求比较高，但是数据速率比较低的产品，
-如遥控类的，如鼠标，键盘，遥控鼠标(Air Mouse)，传感设备的数据发送，如心跳带，血压计，温度传感器等。
+如遥控类的，如鼠标，键盘，遥控鼠标(Air Mouse)，传感设备的数据发送，如心跳带，血压计，温度传感器等，
+低功耗蓝牙是通过Gatt协议来实现。
 
 Android 4.3 (API level 18) introduces built-in platform support for Bluetooth Low Energy (BLE) 
 
