@@ -67,3 +67,19 @@ if (mBluetoothAdapter == null || !mBluetoothAdapter.isEnabled()) {
 2)设置扫描时间，避免循环一直扫描。
 
 ````
+### 连接设备
+```
+device的connectGatt方法进行设备连接
+BluetoothGatt gatt = device.connectGatt(this, false, mGattCallback);
+
+
+```
+
+### BLE
+```
+有多个service组成， 每个service有多个characteristic,
+每个characteristic有1个value和多个Descriptor组成，
+1个Descriptor包含1个value.
+
+```
+
