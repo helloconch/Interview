@@ -45,6 +45,17 @@ c. git push -u origin master
 8.切换分支
 git checkout dev
 
+9.在dev上开发完功能，合并到主分支
+a.dev分支将新修改的内容add、commit、push到dev分支
+b.切换到master 执行git merge dev 然后push
+若dev功能还未开发完，可先推到远程dev分支
+
+
+10.删除本地分支dev2
+a.切换到master分支 git checkout master
+b.删除分支 git branch -d dev2
+
+
 
 
 将电脑隐藏文件进行显示，命令行执行完毕后，重启Finder
