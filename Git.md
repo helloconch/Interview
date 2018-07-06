@@ -11,7 +11,7 @@ git branch
 git branch -a
 
 3.本地新创建一个分支dev
-git checkout dev
+git checkout -b dev
 Switched to branch 'dev'
 
 4.若远程没有dev分支，将新创建的分支push到远程
@@ -40,7 +40,7 @@ $ git clone -b dev https://github.com/helloconch/TT.git
 7.本地文件push到远程新仓库
 a. git add/commit
 b. git remote add origin git@github.com:michaelliao/learngit.git
-c. )$ git push -u origin master
+c. git push -u origin master
 
 8.切换分支
 git checkout dev
