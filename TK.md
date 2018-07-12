@@ -1284,6 +1284,7 @@ public static Singleton getInstance(){
 单例模式、Builder模式、观察者模式、简单工厂、动态代理。
 ```
 ### Android主流设计架构
+[设计架构](https://mp.weixin.qq.com/s?__biz=MzUxNTE1OTg3OQ==&mid=2247484173&idx=1&sn=73aebe8039c530ff7ace694c971f91b6&scene=21#wechat_redirect)
 ```
 MVC、MVP、MVVM
 ```
