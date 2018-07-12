@@ -1281,7 +1281,11 @@ public static Singleton getInstance(){
 ### Android用到的设计模式
 [详解](https://www.cnblogs.com/android-blogs/p/5530239.html)
 ```
-单例模式、Builder模式、MVP模式、观察者模式、简单工厂、动态代理。
+单例模式、Builder模式、观察者模式、简单工厂、动态代理。
+```
+### Android主流设计架构
+```
+MVC、MVP、MVVM
 ```
 
 ### Integer ==
