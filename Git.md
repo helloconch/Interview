@@ -16,6 +16,11 @@ Switched to branch 'dev'
 
 4.若远程没有dev分支，将新创建的分支push到远程
 git push origin dev
+当push时遇到如下错误:
+fatal: The current branch develop has no upstream branch.
+To push the current branch and set the remote as upstream, use
+git push --set-upstream origin dev
+
 
 5.新clone一个项目，git branch时只显示master分支，查看git branch -a 显示所有分支
 * master
@@ -37,21 +42,16 @@ git push
 $ git clone -b dev https://github.com/helloconch/TT.git
 
 
-7.本地文件push到远程新仓库
-a. git add/commit
-b. git remote add origin git@github.com:michaelliao/learngit.git
-c. git push -u origin master
-
-8.切换分支
+7.切换分支
 git checkout dev
 
-9.在dev上开发完功能，合并到主分支
+8.在dev上开发完功能，合并到主分支
 a.dev分支将新修改的内容add、commit、push到dev分支
 b.切换到master 执行git merge dev 然后push
 若dev功能还未开发完，可先推到远程dev分支
 
 
-10.删除本地分支dev2
+9.删除本地分支dev2
 a.切换到master分支 git checkout master
 b.删除分支 git branch -d dev2
 
