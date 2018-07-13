@@ -1,4 +1,11 @@
-报错信息如下
+1.错误信息compileDebugJavaWithJavac
+执行 gradlew compileDebugSources --stacktrace -info 具体定位
+
+2.错误信息org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':shecare:compileGooglePlayDebugJavaWithJavac'.
+
+执行 gradlew compileGooglePlayDebugJavaWithJavac 查找具体报错信息
+
+3.报错信息如下
 Execution failed for task ':app:transformClassesWithDexForDebug'.
 com.android.build.api.transform.TransformException: com.android.ide.common.process.ProcessException:
 java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException:
