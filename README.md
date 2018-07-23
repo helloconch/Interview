@@ -17,4 +17,8 @@
 
 [算法](https://blog.csdn.net/derrantcm/article/details/46887821)
 
+基于用户使用尺寸720*1280
+xh，xxh，xxxh对应@1X，@2X，@3X
+现在整体市场使用机型尺寸应该是1080*1920
+
 
