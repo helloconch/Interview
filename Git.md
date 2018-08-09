@@ -60,6 +60,11 @@ b.删除分支 git branch -d dev2
 
 将电脑隐藏文件进行显示，命令行执行完毕后，重启Finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
+
+
+mac系统下，如果改坏了bash_profile后的救助方法
+export PATH=/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
 ```
 
 
