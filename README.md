@@ -17,6 +17,8 @@
 
 [算法](https://blog.csdn.net/derrantcm/article/details/46887821)
 
+[UI适配](https://www.jianshu.com/p/a4b8e4c5d9b0)
+
 基于用户使用尺寸720*1280
 
 xh，xxh，xxxh对应@1X，@2X，@3X
