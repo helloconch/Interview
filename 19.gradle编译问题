@@ -5,6 +5,9 @@
 
 执行 gradlew compileGooglePlayDebugJavaWithJavac 查找具体报错信息
 
+3.Android Studio编译失败,提示Error:Connection refused: connect
+https://blog.csdn.net/qqmzoniwcd/article/details/82226383
+
 3.报错信息如下
 Execution failed for task ':app:transformClassesWithDexForDebug'.
 com.android.build.api.transform.TransformException: com.android.ide.common.process.ProcessException:
