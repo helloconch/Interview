@@ -8,7 +8,14 @@
 3.Android Studio编译失败,提示Error:Connection refused: connect
 https://blog.csdn.net/qqmzoniwcd/article/details/82226383
 
-3.报错信息如下
+4. 已添加Multidex 依然报NoClassDefFoundError
+http://www.aichengxu.com/java/2458873.htm
+
+
+
+
+
+报错信息如下
 Execution failed for task ':app:transformClassesWithDexForDebug'.
 com.android.build.api.transform.TransformException: com.android.ide.common.process.ProcessException:
 java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException:
