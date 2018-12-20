@@ -2,8 +2,12 @@
 执行 gradlew compileDebugSources --stacktrace -info 具体定位
 
 2.错误信息org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':shecare:compileGooglePlayDebugJavaWithJavac'.
+执行查找具体报错信息
 
-执行 gradlew compileGooglePlayDebugJavaWithJavac 查找具体报错信息
+gradlew compileGooglePlayDebugJavaWithJavac 
+
+gradlew compileDebugSources
+
 
 3.Android Studio编译失败,提示Error:Connection refused: connect
 https://blog.csdn.net/qqmzoniwcd/article/details/82226383
