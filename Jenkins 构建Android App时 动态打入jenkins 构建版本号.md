@@ -1,3 +1,6 @@
+
+[参考](https://www.jianshu.com/p/6a945778125a)
+
 ```
 
 1.自定义版本号 在app/build.gradle 中
