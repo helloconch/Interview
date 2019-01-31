@@ -1,4 +1,8 @@
 ### adb常用命令
+
+[adb wifi连接手机](https://blog.csdn.net/yuxiatongzhi/article/details/77072736)
+
+
 ```
 一、查看task栈情况
 在cmd命令行里或者Android Studio中的Terminal里敲入如下命令：
