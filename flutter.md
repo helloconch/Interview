@@ -11,3 +11,8 @@ open -a Simulator
 
 flutter clean
 
+
+### 常见问题
+
+[将Jcenter换成阿里云](https://blog.csdn.net/lanwilliam/article/details/83339306)
+
