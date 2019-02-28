@@ -1,4 +1,6 @@
 
+ 桥接模式/装饰者模式
+
 [启动模式](https://blog.csdn.net/yeyuxp/article/details/21952323)
 
 ### MVC MVP MVVM
