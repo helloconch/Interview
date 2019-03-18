@@ -1,4 +1,6 @@
 
+[Android 多线程之HandlerThread 完全详解](https://www.cnblogs.com/ldq2016/p/8192210.html)
+
  桥接模式/装饰者模式
 
 [启动模式](https://blog.csdn.net/yeyuxp/article/details/21952323)
