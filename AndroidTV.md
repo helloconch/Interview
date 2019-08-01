@@ -43,7 +43,9 @@ adb get-product
 清除日志
 adb shell logcat -c
 保存日志
-adb shell logcat -v time > D:/ttt.log
+adb shell logcat -v time > D:/log.txt
+
+ctrl + c停止抓取
 
 
 12，adb install -r apk位置
