@@ -1,4 +1,5 @@
 ### 常用命令
+```
 flutter doctor
 
 flutter devices
@@ -14,6 +15,19 @@ flutter clean
 Dart 分析器 flutter analyze
 
 关闭调试模式并使用发布模式，请使用flutter run --release运行您的应用程序
+
+```
+
+
+
+###  vscode flutter常用快捷键
+```
+热加载 -- r
+热重启 -- R
+显示布局网格 -- P
+换Andriod和ios风格 -- O
+退出调试 -- Q
+```
 
 
 ### 常见问题
