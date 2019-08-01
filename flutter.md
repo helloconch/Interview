@@ -11,7 +11,9 @@ open -a Simulator
 
 flutter clean
 
-flutter analyze
+Dart 分析器 flutter analyze
+
+关闭调试模式并使用发布模式，请使用flutter run --release运行您的应用程序
 
 
 ### 常见问题
