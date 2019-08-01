@@ -11,6 +11,8 @@ open -a Simulator
 
 flutter clean
 
+flutter analyze
+
 
 ### 常见问题
 
