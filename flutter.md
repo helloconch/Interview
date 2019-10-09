@@ -16,7 +16,11 @@ Dart 分析器 flutter analyze
 
 关闭调试模式并使用发布模式，请使用flutter run --release运行您的应用程序
 
+flutter pub get 同步第三方库
+
 ```
+
+[pub第三方库地址](https://pub.dev/)
 
 [json转dart model](https://github.com/flutterchina/json_model)
 
