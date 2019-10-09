@@ -18,6 +18,8 @@ Dart 分析器 flutter analyze
 
 ```
 
+[json转dart model](https://github.com/flutterchina/json_model)
+
 
 
 ###  vscode flutter常用快捷键
