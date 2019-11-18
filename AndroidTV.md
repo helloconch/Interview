@@ -1,5 +1,12 @@
 ### adb常用命令
 
+adb 启动某个Activity
+启动并传递参数useranme=xxx
+adb shell am start -a android.intent.action.login --es username "13900139000"
+
+adb shell am start -n packagename/com.xx.xx.xx.login.LoginActivity
+
+
 [adb wifi连接手机](https://blog.csdn.net/yuxiatongzhi/article/details/77072736)
 
 
