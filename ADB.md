@@ -1,5 +1,12 @@
 ### adb常用命令
 
+#### 获取签名文件md5 sha256等信息
+
+```
+>keytool -list -v -keystore C:\Users\cheya\Desktop\release\xxx.jks
+
+```
+
 #### adb 启动某个Activity
 ```
 启动并传递参数useranme=xxx
