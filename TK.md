@@ -865,23 +865,25 @@ class Node {
 
 ### 单向链表反转
 ```
-class RevertLinkData extends LinkData{
-		public void revertPrint() {
-			//使用三个指针，解决链表反转问题
-			Node current=first;
-			Node before=null;
-			while(current!=null) {
-				last=before;
-				before=current;
-				current=current.next;
-				before.next=last;
-			}
-			current=before;
-			while(current!=null) {
-				System.out.println("链表反转=="+current.data + "==" + current.name);
-				current = current.next;
-			}
+	public void reversePrint() {
+		ListNode curr = first;
+		ListNode pre = null;
+        ListNode next=null;
+		while (curr != null) {
+			next = pre;
+			pre = curr;
+			curr = curr.next;
+			pre.next = next;
+			System.out.println();
 		}
+
+		curr = pre;
+
+		while (curr != null) {
+			System.out.println("::::" + curr.val);
+			curr = curr.next;
+		}
+
 	}
 ```
 
