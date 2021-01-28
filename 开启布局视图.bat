@@ -1,0 +1,1 @@
+adb shell setprop debug.layout true

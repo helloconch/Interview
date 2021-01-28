@@ -1,0 +1,1 @@
+python D:\Android\SDK\platform-tools\systrace\systrace.py --time=10 -o mynewtrace.html sched gfx view wm
