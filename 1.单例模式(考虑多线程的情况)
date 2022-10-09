@@ -2,20 +2,27 @@
 要实现这一点，可以从客户端对其进行实例化开始。因此需要用一种只允许生成对象类的唯一实例的机制，“阻止”所有想要生成对象的访问。
 
 饿汉式：
-public class Singleton{
-       prvate static Singleton uniqueInstance=null;
-       private Singleton(){}
-       public static Singleton instance(){
-              if(uniqueInstance==null)
-                 uniqueInstance=new Singleton();
-              return uniqueInstance;
-       
-       }
+顾名思义，他是一个懒汉，他不愿意动弹。什么时候需要吃饭了，他就什么时候开始想办法搞点食物。
+即懒汉式一开始不会实例化，什么时候用就什么时候new，才进行实例化。
 
+懒汉式：
+顾名思义，他是一个饿汉，他很勤快就怕自己饿着。他总是先把食物准备好，什么时候需要吃了，他随时拿来吃，不需要临时去搞食物。
+即饿汉式在一开始类加载的时候就已经实例化，并且创建单例对象，以后只管用即可。
+
+饿汉式：
+public class Singleton {
+　//一开始类加载的时候就实例化，创建单实例对象
+    private static Singleton instance = new Singleton();
+    private Singleton(){
+
+    }
+    public static Singleton getInstance(){
+        return instance;
+    }
 }
 
-设计模式教科书上的示例一般与上述代码类似。如果在多线程环境下，instance（）方法可能会出现问题。如何才能做到线程安全呢，可以将代码
-变成：
+
+懒汉式：
 public synchronized static Singleton instance(){
               if(uniqueInstance==null)
                  uniqueInstance=new Singleton();
@@ -78,3 +85,12 @@ public class CountDownTest {
 其中CountDownLatch latch为闭锁，所有线程中都用latch.await();等待锁释放，
 待所有线程初始化完成使用latch.countDown();释放锁
 ，从而达到线程并发执行Singleton.getInstance()的效果。
+
+
+懒汉式和饿汉式的安全和性能区别：
+1） 线程安全：饿汉式在线程还没出现之前就已经实例化了，所以饿汉式一定是线程安全的。懒汉式加载是在使用时才会去new 实例的，那么你去new的时候是一个动态的过程，是放到方法中实现的，比如：
+如果这个时候有多个线程访问这个实例，这个时候实例还不存在，还在new，就会进入到方法中，有多少线程就会new出多少个实例。一个方法只能return一个实例，那最终return出哪个呢？是不是会覆盖很多new的实例？这种情况当然也可以解决，那就是加同步锁，避免这种情况发生 。
+
+（2）执行效率：饿汉式没有加任何的锁，因此执行效率比较高。懒汉式一般使用都会加同步锁，效率比饿汉式差。
+（3）内存使用：饿汉式在一开始类加载的时候就实例化，无论使用与否，都会实例化，所以会占据空间，浪费内存。懒汉式什么时候用就什么时候实例化，不浪费内存。
+
